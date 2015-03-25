@@ -622,16 +622,36 @@
   <script type="text/javascript">
     ! function($) {
       "use strict";
+      function isFlashEnabled()
+      {
+          var hasFlash = false;
+          try
+          {
+              var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+              if(fo) hasFlash = true;
+          }
+          catch(e)
+          {
+              if(navigator.mimeTypes ["application/x-shockwave-flash"] != undefined) hasFlash = true;
+          }
+          return hasFlash;
+      }
+      function onClickEmo (e) {
+        var s = $(e), k=s.attr('class');
+        $('#emo-code').val(s.data('c')).select();
+        $('#emo-preview span').removeAttr('class').addClass(k);
+        $('#emo-text').text(s.text());
+      }
       var copyMap = {
         "copy": function (e) {
-            var s = $(this), k=s.attr('class');
+            
             e.clipboardData.clearData();
             e.clipboardData.setData("text/plain", s.data("c"));
             e.preventDefault();
             $('#emo-code').val(s.data('c')).select();
             $('#emo-preview span').removeAttr('class').addClass(k);
             $('#emo-text').text(s.text());
-
+            return onClickEmo(e);
         },
         "aftercopy": function (e) {
           var s = $(this);
@@ -655,14 +675,18 @@
       };
       
       $(document).ready(function(){
-        $("body").on(copyMap, "span.emo");
+        if(isFlashEnabled()) {$("body").on(copyMap, "span.emo");} else {
+          $("span.emo").on('click', function() {
+            return onClickEmo(this);
+          });
+        }
+        
         $('.emo-list > span.emo').each(function() {
             var t = $(this).text();
             var n = $.trim($(this).attr('data-c'));
             $(this).text(t+' '+n);
         });
         $("#emo-code").keyup(function(){
-     
             // Retrieve the input field text and reset the count to zero
             var filter = $(this).val().toLowerCase();
             if (filter.length < 2) return $(".emo-list > span.emo").show();
