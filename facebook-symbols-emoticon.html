@@ -636,22 +636,16 @@
           }
           return hasFlash;
       }
-      function onClickEmo (e) {
-        var s = $(e), k=s.attr('class');
-        $('#emo-code').val(s.data('c')).select();
-        $('#emo-preview span').removeAttr('class').addClass(k);
-        $('#emo-text').text(s.text());
-      }
+  
       var copyMap = {
         "copy": function (e) {
-            
+            var s = $(this), k=s.attr('class');
             e.clipboardData.clearData();
             e.clipboardData.setData("text/plain", s.data("c"));
             e.preventDefault();
             $('#emo-code').val(s.data('c')).select();
             $('#emo-preview span').removeAttr('class').addClass(k);
             $('#emo-text').text(s.text());
-            return onClickEmo(e);
         },
         "aftercopy": function (e) {
           var s = $(this);
@@ -676,9 +670,12 @@
       
       $(document).ready(function(){
         if(isFlashEnabled()) {$("body").on(copyMap, "span.emo");} else {
-          $("span.emo").on('click', function() {
-            return onClickEmo(this);
-          });
+          $("span.emo").on('click', function(){
+               var s = $(this), k=s.attr('class');
+                $('#emo-code').val(s.data('c')).select();
+                $('#emo-preview span').removeAttr('class').addClass(k);
+                $('#emo-text').text(s.text());
+          })
         }
         
         $('.emo-list > span.emo').each(function() {
