@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for http://getfb.net/</title>
+  <link>http://getfb.net/</link>
+
+<item>
+     <link>http://getfb.net/</link>
+     <title>Facebook video downloader online, get Facebook video direct link, save Facebook video - getFB.net</title>
+     <description>getFb is a free online web application that allows you to download videos from Facebook or get video direct link. Download video HD, HQ, SD from Facebook, generator embed html code for Facebook video</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://getfb.net/facebook-video-embed.html</link>
+     <title>Facebook video embed code generator - getFB.net</title>
+     <description>Facebook video embed tools: generator embed html code for Facebook video</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://getfb.net/facebook-symbols-emoticon.html</link>
+     <title>Facebook Symbols list: smiley symbol, emoji symbol, emoticon - getFB.net</title>
+     <description>Facebook Symbols list: smiley symbol, emoji symbol, emoticon - getFB.net</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
