@@ -247,19 +247,23 @@
                 cache: !1
             })
         };
-    this._fi = function(a) {
+    this._fi = function(a,e) {
+    	e = e || 7;
         var b = /^.*((facebook\.com\/)(.*)((video|photo|story)\.php|embed))\?(v=|video_id=|story_fbid=|.*&story_fbid=|.*&v=|.*&video_id=)(\d+).*/,
-        	d = /^.*(facebook\.com\/)(.*)\/(\d+).*/,
-        	i,c,e;
-            
-            if(c = a.match(b) && c[7]) {
-            	i = c[7];
-            } else if(e = a.match(d) && e[3]) {
-            	i = e[3];
-            } else {
-            	i = !1;
-            }
-        return i
+        	d = /^.*(facebook\.com\/)(.*)\/(\d+).*/,r,l,k;
+        	if(e!=7) {
+        		r = d;
+        	}else {
+        		r = b;
+        	}
+        	l = a.match(r);
+       		if(l && l[e]){
+       			return l[e];
+       		} else if(e==3) {
+       			return !1;
+       		} else {
+       			return this._fi(a,3);
+       		}
     }, this._fs = function(a) {
         var b = new Date(0, 0, 0);
         return b.setSeconds(+a), (b.getHours() ? b.getHours() + ":" : "") + b.getMinutes() + ":" + b.getSeconds()
